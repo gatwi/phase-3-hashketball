@@ -127,3 +127,49 @@ def game_hash
 end
 
 # Write code here
+
+# return the nos of scored points
+def num_points_scored(player_name)
+  player = player_stats(player_name)
+  player[:points]
+end
+
+# get's the player's shoe sizes
+
+def shoe_size(player_name)
+  player = player_stats(player_name)
+  player[:shoe]
+end
+
+# defined in team colors
+def team_colors(team_name)
+  team = find_team(team_name)
+  team[:colors]
+end
+
+# gets players by team names
+def team_names
+  game_hash.map do |location, team_data|
+    team_data[:team_name]
+  end
+end
+
+# getting player's name and jersey number
+def player_numbers(team_name)
+  team = find_team(team_name)
+  team[:players].map do |player|
+    player[:number]
+  end
+end
+
+# getting player's stats
+def player_stats(player_name)
+  all_players.find do |player| 
+    player[:player_name] == player_name 
+  end
+end
+
+# we getting rebounds here
+def big_shoe_rebounds
+  big_shoe_player[:rebounds]
+end
